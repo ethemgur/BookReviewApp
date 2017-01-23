@@ -1,0 +1,11 @@
+<h1>Books#index</h1>
+
+<div class="row">
+
+	<% @books.each do |b| %>
+	  <div class="col-xs-6 col-md-3">
+		<%= link_to image_tag(b.avatar), book_path(b), class: "thumbnail" %>
+	  </div>
+	<% end %>
+	
+</div>

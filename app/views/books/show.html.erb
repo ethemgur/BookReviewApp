@@ -1,0 +1,19 @@
+<h1>Books#show</h1>
+
+	<div class="col-xs-6 col-md-3 text-center">
+		<%= image_tag @book.avatar, class: "thumbnail" %>
+		<h2> <%= @book.title %> </h2>
+		<p> <%= @book.author %> </p>
+	</div>
+
+	<div class="col-md-6">
+		<h4>Description</h4>
+		<p> <%= @book.description %> </p>
+	</div>
+
+<% if user_signed_in? %>
+	<% if current_user.id == @book.user_id %>
+		<%= link_to "Edit", edit_book_path(@book) %>
+		<%= link_to "Delete", book_path(@book), method: :delete, data: { :confirm => "Are you sure?" } %>
+	<% end %>
+<% end %>
